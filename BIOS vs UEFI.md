@@ -25,8 +25,20 @@ It does the same job as a BIOS, but with one basic difference: it stores all dat
 This .efi file is stored on a special partition called EFI System Partition (ESP) on the hard disk. This ESP partition also contains the bootloader.
 
 ***UEFI was designed to overcome many limitations of the old BIOS, including:***
+
 1. UEFI supports drive sizes upto 9 zettabytes, whereas BIOS only supports 2.2 terabytes.
 2. UEFI provides faster boot time.
 3. UEFI has discrete driver support, while BIOS has drive support stored in its ROM, so updating BIOS firmware is a bit difficult.
 4. UEFI offers security like "Secure Boot", which prevents the computer from booting from unauthorized/unsigned applications. This helps in preventing rootkits, but also hampers dual-booting, as it treats other OS as unsigned applications. Currently, only Windows and Ubuntu are signed OS (let me know if I am wrong).
 5. UEFI runs in 32bit or 64bit mode, whereas BIOS runs in 16bit mode. So UEFI  is able to provide a GUI (navigation with mouse) as opposed to BIOS which allows navigation only using the keyboard.
+
+***You might not need UEFI***
+ 
+Though all modern computers come equipped with UEFI by default, some reasons why you might choose BIOS over UEFI are:<br>
+1. If you're beginner and don't care about messing with any type of firmware, BIOS is for you.
+2. If you have < 2 TB per hard disk or partition, you can go with BIOS.
+3. BIOS allows running multiple operating systems without changing any settings This can be a security issue from a modern standpoint, but hey, no hassles for the user.
+4. BIOS provides system information to the operating system. So if your OS runs in 16 bit mode, it does not require writing code for interacting with hardware. It can directly use methods provided by BIOS. Else if the OS switches over to 32bit or 64bit mode, then it needs to provide its own subroutines for interacting with hardware.
+5. If you are someone who prefers a keyboard and text based UI over navigation with a mouse and GUI, then BIOS is for you.
+
+> UEFI takes these limitations into account and provides a Legacy mode. In it you can run everything as if you had a BIOS firmware. But keep in mind that Intel has announced that it won't support traditional BIOS from 2020.
