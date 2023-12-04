@@ -14,4 +14,19 @@
 6.The Windows Boot Manager invokes winload.exe —the operating system boot loader—to load the operating system kernel executive (ntoskrnl.exe) and core device drivers. In that respect, wininit.exe is loaded along with some other processes like services.exe for service control, lsass.exe for local security and authority (similar to run-levels) and lsm.exe for local session management, After all this, and after some other drivers are initialized, the Graphical User Inferface (GUI) is loaded and you are presented with the login screen.
 
 ## BIOS: Basic Input/Output System. <br>
+![image](https://github.com/7arbeyx01/HardWare-and-Chips/assets/18347638/4c899b44-cfcf-4b3a-aedf-ed0537211d13)
+
+It is stored on an EPROM (Erasable Programmable Read-Only Memory), allowing the manufacturer to push out updates easily.
+
 ## UEFI: Unified Extensible Firmware Interface. <br>
+![image](https://github.com/7arbeyx01/HardWare-and-Chips/assets/18347638/992b0729-f8e6-46e6-83b4-5427c2b1f5aa)
+
+It does the same job as a BIOS, but with one basic difference: it stores all data about initialization and startup in an .efi file, instead of storing it on the firmware.
+This .efi file is stored on a special partition called EFI System Partition (ESP) on the hard disk. This ESP partition also contains the bootloader.
+
+***UEFI was designed to overcome many limitations of the old BIOS, including:***
+1. UEFI supports drive sizes upto 9 zettabytes, whereas BIOS only supports 2.2 terabytes.
+2. UEFI provides faster boot time.
+3. UEFI has discrete driver support, while BIOS has drive support stored in its ROM, so updating BIOS firmware is a bit difficult.
+4. UEFI offers security like "Secure Boot", which prevents the computer from booting from unauthorized/unsigned applications. This helps in preventing rootkits, but also hampers dual-booting, as it treats other OS as unsigned applications. Currently, only Windows and Ubuntu are signed OS (let me know if I am wrong).
+5. UEFI runs in 32bit or 64bit mode, whereas BIOS runs in 16bit mode. So UEFI  is able to provide a GUI (navigation with mouse) as opposed to BIOS which allows navigation only using the keyboard.
